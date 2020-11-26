@@ -7,4 +7,11 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, presence: true
   has_secure_password
+
+  #返回指定字符串的hash摘要
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                 BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
