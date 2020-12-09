@@ -47,6 +47,7 @@ group :development, :test do
   gem 'byebug', '9.0.6', platforms: :mri
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.13'
+  gem 'rails_db', '2.2.1'
 end
 
 group :development do
